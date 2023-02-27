@@ -8,16 +8,16 @@ namespace kagatranse {
             let buf: Buffer = pins.createBuffer(2);
             buf[0] = addr;
             buf[1] = cmd;
-            pins.i2cWriteBuffer(0x10, buf, false);
+            pins.i2cWriteBuffer(0x2C, buf, false);
         }
         QN8027RReg(addr: number): number {
             let buf: Buffer = pins.createBuffer(1);
 
             buf[0] = addr;
 
-            pins.i2cWriteBuffer(0x10, buf, false);
+            pins.i2cWriteBuffer(0x2C, buf, false);
 
-            buf = pins.i2cReadBuffer(0x10, 1, false);
+            buf = pins.i2cReadBuffer(0x2C, 1, false);
 
             return buf[0];
         }
@@ -47,10 +47,14 @@ namespace kagatranse {
         pins.digitalWritePin(DigitalPin.P14, 0);
         pins.digitalWritePin(DigitalPin.P14, 1);
 
-        dsp.QN8027WReg(0x00, 0x00);
+        dsp.QN8027WReg(0x04, 0xD4);
         dsp.QN8027WReg(0x00, 0x80);
-        dsp.QN8027WReg(0x07, 0x31);
+        dsp.QN8027WReg(0x00, 0x31);
+        //チャンネル
         dsp.QN8027WReg(0x09, 0x0f);
+        //パワー
+        dsp.QN8027WReg(0x10, 0x48);
+
         mode = 1;
 
     }
