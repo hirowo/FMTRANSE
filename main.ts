@@ -44,9 +44,7 @@ namespace kagatranse {
     //% blockId=qn8027_init block="送信機初期化 "
     export function Initqn027(): void {
         let dsp = new QN8027;
-        pins.digitalWritePin(DigitalPin.P14, 0);
-        pins.digitalWritePin(DigitalPin.P14, 1);
-
+ 
         dsp.QN8027WReg(0x04, 0xD4);
         dsp.QN8027WReg(0x00, 0x31);
         //チャンネル
@@ -65,7 +63,7 @@ namespace kagatranse {
     }
 
     //% blockId=radio_setfreq block="周波数%Freq |MHz"
-    //% Freq.min=60.5Freq.max=90.5f
+    //% Freq.min=60.5f Freq.max=90.5f
     export function Set_Freq(Freq: number) {
         let dsp = new QN8027;
         if (mode == 1) {
