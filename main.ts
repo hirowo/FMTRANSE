@@ -48,10 +48,9 @@ namespace kagatranse {
         pins.digitalWritePin(DigitalPin.P14, 1);
 
         dsp.QN8027WReg(0x04, 0xD4);
-        dsp.QN8027WReg(0x00, 0x80);
         dsp.QN8027WReg(0x00, 0x31);
         //チャンネル
-        dsp.QN8027WReg(0x09, 0x0f);
+        dsp.QN8027WReg(0x01, 0x08);
         //パワー
         dsp.QN8027WReg(0x10, 0x48);
 
