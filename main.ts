@@ -63,7 +63,7 @@ namespace kagatranse {
     }
 
     //% blockId=radio_setfreq block="周波数%Freq |MHz"
-    //% Freq.min=60.5f Freq.max=90.5f
+    //% Freq.min=60 Freq.max=90
     export function Set_Freq(Freq: number) {
         let dsp = new QN8027;
         if (mode == 1) {
