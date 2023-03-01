@@ -63,24 +63,19 @@ namespace kagatranse {
     }
 
     //% blockId=radio_setfreq block="周波数%Freq |MHz"
-    //% Freq.min=60.5f Freq.max=90.5f
+    //% Freq.min=88.8f Freq.max=90.5f
     export function Set_Freq(Freq: number) {
         let dsp = new QN8027;
-        if (mode == 1) {
-            ch = ((((Freq * 100) - 3000) * 10) / 25);
-        }
-        else {
-            ch = ((Freq * 100) / 9) * 3;
-        }
+        ch = (Freq-88.8)*20;
         dsp.QN8027WReg(0x03, (ch & 0x00ff));
         dsp.QN8027WReg(0x02, ((ch >> 8) | 0x40));
         dsp.QN8027Tune(mode);
     }
 
     export enum radio_mode {
-        //%block="FM"
+        //%block="音声"
         FM = 1,
-        //%block="AM"
+        //%block="MP3"
         AM = 2
     }
 
