@@ -67,9 +67,7 @@ namespace kagatranse {
     export function Set_Freq(Freq: number) {
         let dsp = new QN8027;
         ch = (Freq-88.8)*20;
-        dsp.QN8027WReg(0x03, (ch & 0x00ff));
-        dsp.QN8027WReg(0x02, ((ch >> 8) | 0x40));
-        dsp.QN8027Tune(mode);
+        dsp.QN8027WReg(0x01, ch);
     }
 
     export enum radio_mode {
