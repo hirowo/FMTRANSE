@@ -84,10 +84,10 @@ namespace kagatranse {
     export function Set_mode(r_mode: radio_mode) {
         mode = r_mode;
         if(mode == 1){
-            pins.digitalWritePin(DigitalPin.P2, 1);
+            pins.digitalWritePin(DigitalPin.P2, 0);
         }
         else if (mode == 2){
-            pins.digitalWritePin(DigitalPin.P2, 0);
+            pins.digitalWritePin(DigitalPin.P2, 1);
         }
         
         
