@@ -2,7 +2,7 @@
 namespace kagatranse {
     let mode: number;
     let ch: number;
-    let pow = DigitalPin.P14;
+    let pow = DigitalPin.P2;
     export class QN8027 {
         QN8027WReg(addr: number, cmd: number) {
             let buf: Buffer = pins.createBuffer(2);
@@ -73,13 +73,24 @@ namespace kagatranse {
     export enum radio_mode {
         //%block="音声"
         FM = 1,
+        
         //%block="MP3"
         AM = 2
+        
+
     }
 
     //% blockId=radio_Setmode block="モード %r_mode"
     export function Set_mode(r_mode: radio_mode) {
         mode = r_mode;
+        if(mode == 1){
+            pins.digitalWritePin(DigitalPin.P2, 1);
+        }
+        else if (mode == 2){
+            pins.digitalWritePin(DigitalPin.P2, 0);
+        }
+        
+        
     }
     //% blockId=radio_setVol block="音量%vol"
     //% vol.min=0 vol.max=63
